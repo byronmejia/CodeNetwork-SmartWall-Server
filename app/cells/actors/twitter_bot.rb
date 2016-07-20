@@ -39,9 +39,6 @@ module Actors
           when Twitter::Tweet
             info "Publish: user -- #{object.to_json}"
             publish 'twitter-user', object
-          when Twitter::DirectMessage
-            info "Publish: dm -- #{object.to_json}"
-            publish 'twitter-dm', object
           when Twitter::Streaming::StallWarning
             info "Publish: warnings -- #{object.to_json}"
             publish 'twitter-warnings', object
