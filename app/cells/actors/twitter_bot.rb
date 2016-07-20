@@ -7,10 +7,8 @@ module Actors
     include Celluloid::Notifications
     include Celluloid::Internals::Logger
     attr_reader :twitter_client
-    attr_reader :topics
 
     def initialize(setting = 0)
-      @topics = ENV['TOPIC']
       now = Time.now.to_f
       sleep now.ceil - now + 0.001
 
@@ -21,13 +19,13 @@ module Actors
         config.access_token_secret = ENV['TW_ACC_KEY']
       end
 
-      info "TwitterBot: Topic set to #{@topics}"
+      info 'TwitterBot: Listening on user feed'
 
       case(setting)
         when 1
           async.listen
         else
-          info 'WARNING: Doing Nothing... Zombie Thread Occurring'
+          info 'WARNING: Doing Nothing... Zombie Thread Spawning'
           terminate
       end
     end
@@ -37,8 +35,11 @@ module Actors
       @twitter_client.user do |object|
         case object
           when Twitter::Tweet
-            info "Publish: user -- #{object.to_json}"
+            info "TwitterBot: #{object.to_json}"
+            # We need to print something like:
+            # #{object.user.screen_name}: #{object.text}
             publish 'twitter-user', object
+            # Confirm "in_reply_to_user_id_str":"755729311588417536"
           when Twitter::Streaming::StallWarning
             info "Publish: warnings -- #{object.to_json}"
             publish 'twitter-warnings', object
