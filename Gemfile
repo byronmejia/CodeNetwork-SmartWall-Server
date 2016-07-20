@@ -13,6 +13,13 @@ gem 'reel'
 # ----- The Twitters ---------
 gem 'twitter'
 
+# ---- Not Relational --------
+gem 'mongoid'
+
+# ----- Authenticate ---------
+gem 'bcrypt'
+gem 'jwt'
+
 =begin
 # ----- Web of things --------
 # This is done as authentication
