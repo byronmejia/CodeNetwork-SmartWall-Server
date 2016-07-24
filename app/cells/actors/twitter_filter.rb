@@ -30,11 +30,11 @@ module Actors
         when 0
           # Pipe to Houndify Worker
           # Pipe to Websocket Writer
-          publish 'webSocket', final_object
+          publish 'publicWebSocket', final_object
           publish 'houndWorker', final_object
         when 1
           # Pipe only to websocket
-          publish 'webSocket', final_object
+          publish 'publicWebSocket', final_object
       end
     end
 

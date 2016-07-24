@@ -10,7 +10,7 @@ module Actors
     def initialize(websocket)
       info 'Writing to new socket client'
       @socket = websocket
-      subscribe 'webSocket', :new_message
+      subscribe 'publicWebSocket', :new_message
     end
 
     def new_message(topic, message)
