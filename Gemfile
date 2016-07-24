@@ -20,23 +20,6 @@ gem 'mongoid'
 gem 'bcrypt'
 gem 'jwt'
 
-=begin
-# ----- Web of things --------
-# This is done as authentication
-# Over WebSocket is not good
-gem 'sinatra'
-gem 'puma'
-=end
-
-=begin
-# ----- Persistence ----------
-gem 'mongoid'
-
-# ----- Authentication ---------
-gem 'bcrypt'
-gem 'warden'
-=end
-
 # ------ Console I/O ---------
 group :development do
   gem 'travis'
