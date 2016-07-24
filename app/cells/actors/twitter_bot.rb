@@ -35,13 +35,11 @@ module Actors
       @twitter_client.user do |object|
         case object
           when Twitter::Tweet
-            info "TwitterBot: #{object.to_json}"
-            # We need to print something like:
-            # #{object.user.screen_name}: #{object.text}
-            publish 'twitter-user', object
-            # Confirm "in_reply_to_user_id_str":"755729311588417536"
+            info "TwitterBot: #{object.user.screen_name}: #{object.text}"
+            # Pipe it straight away
+            publish 'twitter-filter', object
           when Twitter::Streaming::StallWarning
-            info "Publish: warnings -- #{object.to_json}"
+            info "TwitterBot: Warning -- #{object.to_json}"
             publish 'twitter-warnings', object
         end
       end

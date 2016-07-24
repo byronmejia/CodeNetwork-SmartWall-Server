@@ -1,3 +1,4 @@
+require 'json'
 require 'celluloid/current'
 
 module Actors
@@ -9,13 +10,13 @@ module Actors
     def initialize(websocket)
       info 'Writing to new socket client'
       @socket = websocket
-      subscribe('write_message', :new_message)
+      subscribe 'webSocket', :new_message
     end
 
     def new_message(topic, message)
-      @socket << message.inspect
+      @socket << message.to_json
     rescue Reel::SocketError
-      info 'WS client disconnected'
+      info 'WS Client disconnected'
       terminate
     end
   end
