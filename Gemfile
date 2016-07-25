@@ -1,10 +1,10 @@
 # -------- Rubies Ver --------
 source 'https://rubygems.org'
-# Use Jruby as our engine, and specify to RVM what we are using
+# Use RBX as our engine, and specify to RVM what we are using
 # see RVM for more details
-#ruby=jruby-9.0.5.0
-#ruby-gemset=SmartWallServer
-ruby '2.2.3', engine: 'jruby', engine_version: '9.0.5.0'
+#ruby=rbx-3.49
+#ruby-gemset=SmartWallServerRbx
+ruby '2.3.1', engine: 'rbx', engine_version: '3.49'
 
 # ------ Concurrency ---------
 gem 'celluloid'

@@ -24,6 +24,9 @@ module Houndify
     def generate_headers(requestID)
       raise 'No Client ID saved' if Houndify.secrets[:id].nil?
       raise 'No Client Key saveed' if Houndify.secrets[:key].nil?
+
+      requestData = generate_request_auth(requestID)
+      timeStamp = Time.now
     end
 
     private :generate_request_auth

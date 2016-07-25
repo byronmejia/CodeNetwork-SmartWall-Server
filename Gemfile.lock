@@ -14,9 +14,7 @@ GEM
     ast (2.3.0)
     backports (3.6.8)
     bcrypt (3.1.11)
-    bcrypt (3.1.11-java)
     bson (4.1.1)
-    bson (4.1.1-java)
     buftok (0.2.0)
     builder (3.2.2)
     celluloid (0.17.3)
@@ -52,7 +50,6 @@ GEM
     faraday_middleware (0.10.0)
       faraday (>= 0.7.4, < 0.10)
     ffi (1.9.14)
-    ffi (1.9.14-java)
     gh (0.14.0)
       addressable
       backports
@@ -62,7 +59,6 @@ GEM
       net-http-pipeline
     highline (1.7.8)
     hitimes (1.2.4)
-    hitimes (1.2.4-java)
     http (1.0.4)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -72,16 +68,11 @@ GEM
       domain_name (~> 0.5)
     http-form_data (1.0.1)
     http_parser.rb (0.6.0)
-    http_parser.rb (0.6.0-java)
     i18n (0.7.0)
     json (1.8.3)
-    json (1.8.3-java)
     jwt (1.5.4)
     launchy (2.4.3)
       addressable (~> 2.3)
-    launchy (2.4.3-java)
-      addressable (~> 2.3)
-      spoon (~> 0.0.1)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
@@ -100,7 +91,6 @@ GEM
     net-http-persistent (2.9.4)
     net-http-pipeline (1.0.1)
     nio4r (1.2.1)
-    nio4r (1.2.1-java)
     origin (2.2.0)
     parser (2.3.1.2)
       ast (~> 2.2)
@@ -109,11 +99,6 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry (0.10.4-java)
-      coderay (~> 1.1.0)
-      method_source (~> 0.8.1)
-      slop (~> 3.4)
-      spoon (~> 0.0)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
@@ -149,10 +134,7 @@ GEM
     ruby-progressbar (1.8.1)
     simple_oauth (0.3.1)
     slop (3.6.0)
-    spoon (0.0.4)
-      ffi
     thread_safe (0.3.5)
-    thread_safe (0.3.5-java)
     timers (4.1.1)
       hitimes
     travis (1.8.2)
@@ -181,19 +163,15 @@ GEM
       thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext
-    unf (0.1.4-java)
     unf_ext (0.0.7.2)
     unicode-display_width (1.1.0)
     websocket (1.2.3)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
-    websocket-driver (0.6.4-java)
-      websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-    yard (0.9.1)
+    yard (0.9.5)
 
 PLATFORMS
-  java
   ruby
 
 DEPENDENCIES
@@ -210,7 +188,7 @@ DEPENDENCIES
   yard
 
 RUBY VERSION
-   ruby 2.2.3p0 (jruby 9.0.5.0)
+   ruby 2.3.1p0 (rbx 3.49)
 
 BUNDLED WITH
    1.12.5
