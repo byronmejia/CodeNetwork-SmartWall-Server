@@ -9,9 +9,7 @@ module Actors
     def initialize
       now = Time.now.to_f
       sleep now.ceil - now + 0.001
-
       info 'TwitterFilter: Listening on user feed'
-
       subscribe 'houndWorker', :new_message
     end
   end
