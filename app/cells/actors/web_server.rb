@@ -6,7 +6,7 @@ module Actors
   class WebServer < Reel::Server::HTTP
     include Celluloid::Internals::Logger
 
-    def initialize(host = '0.0.0.0', port = 3000)
+    def initialize(host = '0.0.0.0', port = ENV['PORT'] || 3000)
       info "WebServer starting on #{host}:#{port}"
       super(host, port, &method(:on_connection))
     end
