@@ -2,9 +2,9 @@
 source 'https://rubygems.org'
 # Use RBX as our engine, and specify to RVM what we are using
 # see RVM for more details
-#ruby=rbx-3.49
-#ruby-gemset=SmartWallServerRbx
-ruby '2.3.1', engine: 'rbx', engine_version: '3.49'
+#ruby=jruby-9.1.2.0
+#ruby-gemset=SmartWallServerJruby
+ruby '2.3.0', engine: 'jruby', engine_version: '9.1.2.0'
 
 # ------ Concurrency ---------
 gem 'celluloid'
@@ -12,13 +12,6 @@ gem 'reel'
 
 # ----- The Twitters ---------
 gem 'twitter'
-
-# ---- Not Relational --------
-gem 'mongoid'
-
-# ----- Authenticate ---------
-gem 'bcrypt'
-gem 'jwt'
 
 # ------ Console I/O ---------
 group :development do
