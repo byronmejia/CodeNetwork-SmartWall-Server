@@ -2,7 +2,7 @@ require 'celluloid/current'
 require 'reel'
 
 # Configuration Methods
-unless ENV['RACK_ENV'].nil?
+if ENV['RACK_ENV'].nil?
   SECRETS = JSON.parse(
       File.read(
           File.join(__dir__, 'config', 'secrets.json')
