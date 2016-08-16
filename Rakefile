@@ -21,4 +21,9 @@ namespace :run do
   task :twitter do
     ruby File.join(__dir__, 'twitter_clock', 'app.rb')
   end
+
+  desc 'Run a Fake Twitter Clock'
+  task :fake_twitter do
+    ruby File.join(__dir__, 'test_workers', 'twitter_seeder.rb')
+  end
 end
