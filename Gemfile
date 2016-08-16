@@ -2,16 +2,26 @@
 source 'https://rubygems.org'
 # Use RBX as our engine, and specify to RVM what we are using
 # see RVM for more details
-#ruby=jruby-9.1.2.0
-#ruby-gemset=SmartWallServerJruby
-ruby '2.3.0', engine: 'jruby', engine_version: '9.1.2.0'
+#ruby=ruby-2.3.1
+#ruby-gemset=SmartWallServer
+ruby '2.3.1'
 
-# ------ Concurrency ---------
+# -------- Rack Server -------
+gem 'puma'
+
+# -------- Web Server --------
+gem 'sinatra'
+
+# -------- Web Socket --------
+gem 'faye'
+
+# ------ Twitter Clock -------
 gem 'celluloid'
-gem 'reel'
-
-# ----- The Twitters ---------
 gem 'twitter'
+
+# ---- Distributed Coms ------
+# -- And Key/Value Store
+gem 'redis'
 
 # ------ Console I/O ---------
 group :development do
