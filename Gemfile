@@ -11,6 +11,7 @@ gem 'puma'
 
 # -------- Web Server --------
 gem 'sinatra'
+gem 'sinatra-contrib'
 gem 'slim'
 gem 'sprockets'
 gem 'uglifier'

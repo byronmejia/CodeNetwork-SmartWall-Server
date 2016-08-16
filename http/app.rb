@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/reloader' if development?
 require 'slim'
 
 # Helper Function for Importing Directories
