@@ -1,4 +1,6 @@
 require 'celluloid/current'
+require 'json'
+require 'securerandom'
 require 'twitter'
 require 'redis'
 require_relative './twitter_listener'
@@ -16,6 +18,8 @@ if ENV['RACK_ENV'] == 'development'
   ENV['TW_CON_KEY'] = SECRETS['TWITTER']['CONSUMER']['SECRET']
   ENV['TW_ACC_PUB'] = SECRETS['TWITTER']['ACCESS']['TOKEN']
   ENV['TW_ACC_KEY'] = SECRETS['TWITTER']['ACCESS']['SECRET']
+  ENV['RD_WORKER_CHANNEL'] = SECRETS['REDIS']['CHANNEL']['WORKER']
+  ENV['RD_PUBLISH_CHANNEL'] = SECRETS['REDIS']['CHANNEL']['PUBLISH']
 end
 
 # Run Supervisors & Sleep
