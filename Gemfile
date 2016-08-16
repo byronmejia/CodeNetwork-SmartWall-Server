@@ -11,6 +11,10 @@ gem 'puma'
 
 # -------- Web Server --------
 gem 'sinatra'
+gem 'slim'
+gem 'sprockets'
+gem 'uglifier'
+gem 'therubyracer'
 
 # -------- Web Socket --------
 gem 'faye-websocket'
@@ -19,8 +23,7 @@ gem 'faye-websocket'
 gem 'celluloid'
 gem 'twitter'
 
-# ---- Distributed Coms ------
-# -- And Key/Value Store
+# ------ MQ & KV Store -------
 gem 'redis'
 
 # ------ Console I/O ---------

@@ -1,6 +1,7 @@
 # Signal catching
 def shut_down
   puts "\nShutting down gracefully..."
+  puts "\nYou may see Actor Errors soon..."
 end
 
 # Trap ^C
