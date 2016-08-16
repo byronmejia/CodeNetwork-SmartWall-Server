@@ -1,6 +1,10 @@
 //= require components/domHelper
 //= require_tree .
 
+const PING = JSON.stringify({
+    "CMD":"/PING"
+});
+
 document.addEventListener("DOMContentLoaded", function(event) {
     var payload;
     var parentElement = gID('tweets');
@@ -39,4 +43,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
             parentElement.removeChild(parentElement.childNodes[0]);
         }
     };
+
+    setInterval(function(){
+        socket.send(PING)
+    }, 3000)
 });
