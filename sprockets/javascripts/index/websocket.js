@@ -5,7 +5,7 @@ var helloWorld = {
     "hello":"world"
 };
 
-const socketUri = "ws://" + location.host + "/ws";
+const socketUri = "wss://" + location.host + "/ws";
 var socket = new WebSocket(socketUri);
 
 socket.onopen = function (event) {
