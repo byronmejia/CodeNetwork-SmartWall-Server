@@ -13,7 +13,7 @@ gem 'puma'
 gem 'sinatra'
 
 # -------- Web Socket --------
-gem 'faye'
+gem 'faye-websocket'
 
 # ------ Twitter Clock -------
 gem 'celluloid'

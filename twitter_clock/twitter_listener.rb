@@ -46,7 +46,13 @@ class TwitterListener
         when Twitter::Tweet
           info "TwitterBot: #{object.user.screen_name}: #{object.text}"
           # Pipe it straight away
-          @redis.publish(@publish_channel, object.to_json)
+          @redis.publish(
+              @publish_channel,
+              {
+                  :name => object.user.screen_name,
+                  :tweet => object.text
+              }.to_json
+          )
         when Twitter::Streaming::StallWarning
           info "TwitterBot: Warning -- #{object.to_json}"
       end

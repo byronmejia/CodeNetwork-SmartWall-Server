@@ -6,12 +6,11 @@ require 'redis'
 require_relative './twitter_listener'
 require_relative './twitter_supervisor'
 
-ENV['RACK_ENV'] = 'development' if ENV['RACK_ENV'].nil?
-
-if ENV['RACK_ENV'] == 'development'
+CONFIG_FILE = File.join(__dir__, '..', 'config', 'secrets.json')
+if File.file?(CONFIG_FILE)
   SECRETS = JSON.parse(
       File.read(
-          File.join(__dir__, '..', 'config', 'secrets.json')
+          CONFIG_FILE
       )
   )
   ENV['TW_CON_PUB'] = SECRETS['TWITTER']['CONSUMER']['KEY']
@@ -21,6 +20,7 @@ if ENV['RACK_ENV'] == 'development'
   ENV['RD_WORKER_CHANNEL'] = SECRETS['REDIS']['CHANNEL']['WORKER']
   ENV['RD_PUBLISH_CHANNEL'] = SECRETS['REDIS']['CHANNEL']['PUBLISH']
 end
+
 
 # Run Supervisors & Sleep
 TwitterSupervisor.run!
