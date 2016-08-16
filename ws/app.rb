@@ -54,7 +54,9 @@ class RedisSubscriber
     now = Time.now.to_f
     sleep now.ceil - now + 0.001
     @publish_channel = ENV['RD_PUBLISH_CHANNEL']
-    @redis = Redis.new
+    @redis = Redis.new(
+        :url => ENV['REDIS_URL'] || nil
+    )
     async.listen
   end
 

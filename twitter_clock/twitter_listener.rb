@@ -21,7 +21,9 @@ class TwitterListener
       config.access_token_secret = ENV['TW_ACC_KEY']
     end
 
-    @redis = Redis.new
+    @redis = Redis.new(
+        :url => ENV['REDIS_URL'] || nil
+    )
     @redis.publish(
         @worker_channel,
         {
