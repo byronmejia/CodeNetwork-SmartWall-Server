@@ -47,11 +47,15 @@ class TwitterListener
       case object
         when Twitter::Tweet
           info "TwitterBot: #{object.user.screen_name}: #{object.text}"
+          info object.user.name
           # Pipe it straight away
           @redis.publish(
               @publish_channel,
               {
-                  :name => object.user.screen_name,
+                  :name => object.user.name,
+                  :username => object.user.screen_name,
+                  :profile_image => object.user.profile_image_url.to_s,
+                  :fav_colour => object.user.profile_background_color,
                   :tweet => object.text
               }.to_json
           )
