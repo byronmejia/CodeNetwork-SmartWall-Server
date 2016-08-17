@@ -5,6 +5,7 @@ class TwitterListener
   attr_reader :redis
   attr_reader :publish_channel
   attr_reader :worker_channel
+  attr_reader :question_channel
   attr_reader :id
 
   def initialize(setting = 0)
@@ -13,6 +14,7 @@ class TwitterListener
 
     @worker_channel = ENV['RD_WORKER_CHANNEL']
     @publish_channel = ENV['RD_PUBLISH_CHANNEL']
+    @question_channel = ENV['RD_QUESTION_CHANNEL']
     @id = SecureRandom.uuid
     @twitter_client = Twitter::Streaming::Client.new do |config|
       config.consumer_key = ENV['TW_CON_PUB']
@@ -50,8 +52,27 @@ class TwitterListener
       case object
         when Twitter::Tweet
           info "TwitterBot: #{object.user.screen_name}: #{object.text}"
-
+          question = false
+          object.hashtags.each do |p|
+            if p.text.to_s.downcase == 'natsciwksw'
+              info 'Question!'
+              question = true
+            end
+          end
           # Pipe it straight away
+          if question
+            @redis.publish(
+                @question_channel,
+                {
+                    :name => object.user.name,
+                    :username => object.user.screen_name,
+                    :profile_image => object.user.profile_image_url.to_s,
+                    :fav_colour => object.user.profile_background_color,
+                    :tweet => object.text,
+                    :id => object.id
+                }.to_json
+            )
+          end
           @redis.publish(
               @publish_channel,
               {

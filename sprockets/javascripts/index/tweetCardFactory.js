@@ -36,3 +36,27 @@ function genTweetCard(payload){
 
     return card;
 }
+
+function getAnswerCard(payload){
+    // First, check of weird AND symbol
+    payload.response = payload.response.replace(/&amp;/g, '&');
+    // Start at top of Tree
+    var card = document.createElement("div");
+    card.className += 'ui fluid card';
+    var content = document.createElement("div");
+    content.className += 'content';
+
+    var childHeader = document.createElement("div");
+    childHeader.className += 'header';
+    childHeader.innerText += 'SmartWall Solution';
+
+    var childDescription = document.createElement("div");
+    childDescription.className += 'description';
+    childDescription.innerText += payload.response;
+
+    content.appendChild(childHeader);
+    content.appendChild(childDescription);
+    card.appendChild(content);
+
+    return card;
+}
