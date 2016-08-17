@@ -35,6 +35,8 @@ class TwitterListener
     case(setting)
       when 1
         async.listen
+      when 2
+        async.listen_user
       else
         info 'WARNING: Doing Nothing... Zombie Thread Spawning'
         terminate
@@ -42,12 +44,13 @@ class TwitterListener
   end
 
   def listen
-    info 'TwitterStream: Publishing user topics.'
-    @twitter_client.user do |object|
+    topics = %w(NatSciWk NatSciWkSW)
+    info "TwitterStream: Publishing: #{topics.to_s}"
+    @twitter_client.filter(track: topics.join(',')) do |object|
       case object
         when Twitter::Tweet
           info "TwitterBot: #{object.user.screen_name}: #{object.text}"
-          info object.user.name
+
           # Pipe it straight away
           @redis.publish(
               @publish_channel,
