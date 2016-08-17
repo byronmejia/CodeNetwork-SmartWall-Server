@@ -1,5 +1,13 @@
+//= require semantic_ui/components/segment
 //= require semantic_ui/components/header
 //= require semantic_ui/components/grid
 //= require semantic_ui/components/icon
 //= require semantic_ui/components/image
 //= require semantic_ui/components/card
+
+$twitter-blue: rgb(0, 132, 180);
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: $twitter-blue;
+}

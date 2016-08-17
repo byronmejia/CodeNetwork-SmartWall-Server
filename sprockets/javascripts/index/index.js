@@ -1,10 +1,6 @@
 //= require components/domHelper
 //= require_tree .
 
-const PING = JSON.stringify({
-    "CMD":"/PING"
-});
-
 document.addEventListener("DOMContentLoaded", function(event) {
     var payload;
     var parentElement = gID('tweets');
